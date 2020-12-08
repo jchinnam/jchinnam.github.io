@@ -1,2 +1,2 @@
 # jchinnam.github.io
-personal website
+check me out at [jchinnam.github.io](jchinnam.github.io)
