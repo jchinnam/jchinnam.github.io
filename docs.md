@@ -1,12 +1,12 @@
 # documentation
 
 #### starting out
-wanted to go simple this time--started with a simple bootstrap [template](https://bootstrapmade.com/free-html-bootstrap-template-my-resume/) and stripped it down to its bones--removed everything, leaving only the `hero` section
+wanted to go simple this time--started with a simple bootstrap [template](https://bootstrapmade.com/free-html-bootstrap-template-my-resume/) and stripped it down to its bones--removed everything, leaving only the `hero` and `footer` sections
 
 #### adding particles
 integration of `particles.js`, [by vincent garreau](https://github.com/VincentGarreau/particles.js)
 
-1. downloaded javascript `particles.js` and `particles-config.js` (originally called `app.js`, you can either load here or copy config into it)
+1. downloaded javascript `particles.js` and `particles-config.js` (originally called `app.js`, you can either load here or copy config into it) into `vendor/particles`
 2. designed config json in [generator](https://vincentgarreau.com/particles.js/) and copied into `particles-config.js`
 3. added css into `css/style.css`
 ```
@@ -22,14 +22,14 @@ integration of `particles.js`, [by vincent garreau](https://github.com/VincentGa
    background-repeat: no-repeat;
  }
 ```
-4. added html into `index.html` within `<body>`
+4. added container and script sourcing into `index.html` within `<body>`
 ```
-<!-- particles.js container -->
-<div id="particles-js"></div>
+  <!-- particles.js container -->
+  <div id="particles-js"></div>
 
-<!-- particles.js scripts -->
-<script src="js/particles.js"></script>
-<script src="js/particles-config.js"></script>
+  <!-- particles.js scripts -->
+  <script src="vendor/particles/particles.js"></script>
+  <script src="vendor/particles/particles-config.js"></script>
 ```
 
 #### going dark mode
