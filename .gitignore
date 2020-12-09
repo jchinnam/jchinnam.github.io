@@ -1,5 +1,6 @@
-*.DS_Store
+template/
 
 redirect.html
-
 ideas.txt
+
+*.DS_Store
