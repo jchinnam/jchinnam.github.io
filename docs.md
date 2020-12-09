@@ -3,6 +3,23 @@
 #### starting out
 wanted to go simple this time--started with a simple bootstrap [template](https://bootstrapmade.com/free-html-bootstrap-template-my-resume/) and stripped it down to its bones--removed everything, leaving only the `hero` and `footer` sections
 
+#### sticking to the basics
+added a few basic social links & a short list of projects I'm proud of to `hero`
+
+#### a photo of me
+you know, because.
+1. html:
+```
+<img src="img/me.jpg" class="img-fluid circle-profile" alt="profile photo">
+```
+2. css:
+```
+.circle-profile {
+  border-radius: 50%;
+  margin: 0px 0px 40px 0px; /* bottom padding so no bump into name */
+}
+```
+
 #### adding particles
 integration of `particles.js`, [by vincent garreau](https://github.com/VincentGarreau/particles.js)
 
@@ -30,6 +47,21 @@ integration of `particles.js`, [by vincent garreau](https://github.com/VincentGa
   <!-- particles.js scripts -->
   <script src="vendor/particles/particles.js"></script>
   <script src="vendor/particles/particles-config.js"></script>
+```
+
+##### making particles interactive
+wanted to push out more particles on click events.
+in `particles-config.js`:
+```
+"interactivity": {
+  "detect_on": "window",
+  "events": {
+    "onclick": {
+      "enable": true,
+      "mode": "push"
+    },
+  },
+}
 ```
 
 #### going dark mode
