@@ -1,9 +1,9 @@
 # documentation
 
-##### starting out
+#### starting out
 wanted to go simple this time--started with a simple bootstrap [template](https://bootstrapmade.com/free-html-bootstrap-template-my-resume/) and stripped it down to its bones--removed everything, leaving only the `hero` section
 
-##### adding particles
+#### adding particles
 integration of `particles.js`, [by vincent garreau](https://github.com/VincentGarreau/particles.js)
 
 1. downloaded javascript `particles.js` and `particles-config.js` (originally called `app.js`, you can either load here or copy config into it)
@@ -25,25 +25,25 @@ integration of `particles.js`, [by vincent garreau](https://github.com/VincentGa
 4. added html into `index.html` within `<body>`
 ```
 <!-- particles.js container -->
-   <div id="particles-js"></div>
+<div id="particles-js"></div>
 
-   <!-- particles.js scripts -->
-   <script src="js/particles.js"></script>
-   <script src="js/particles-config.js"></script>
+<!-- particles.js scripts -->
+<script src="js/particles.js"></script>
+<script src="js/particles-config.js"></script>
 ```
 
-##### going dark mode
+#### going dark mode
 in `style.css`:
 - particles container background to black
 ```
- #particles-js{
+#particles-js{
    background-color: #000000;
- }
+}
  ```
 - bring down opacity of hero background (in front of particles)
 ```
 #hero:before {
-   background: rgba(255, 255, 255, 0.2); /*down from 0.8*/
+   background: rgba(255, 255, 255, 0.2); /* down from 0.8 */
 }
 ```
 - header and text to white
