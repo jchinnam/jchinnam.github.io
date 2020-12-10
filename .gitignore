@@ -1,6 +1,4 @@
-template/
-
-redirect.html
-ideas.txt
-
 *.DS_Store
+
+reference/
+misc/
