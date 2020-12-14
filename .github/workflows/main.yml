@@ -37,4 +37,5 @@ jobs:
       - name: Run ESLint
         run: |
           npm i -g eslint
+          eslint --init
           eslint . --ext .js,.jsx,.ts,.tsx
