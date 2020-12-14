@@ -32,4 +32,4 @@ jobs:
       
       # Linting
       - name: Run ESLint
-        run: eslint . --ext .js,.jsx,.ts,.tsx
+        run: npm run lint
