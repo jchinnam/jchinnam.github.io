@@ -25,17 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         
-        # Setup Note & npm
+        # Setup node & npm
         name: Node setup
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
-      - run: npm install
-      - run: npm test
+      - run: npm ci
       
       # Linting
-      - name: Run ESLint
-        run: |
-          npm i -g eslint
-          eslint --init
-          eslint . --ext .js,.jsx,.ts,.tsx
+      - name: Run ESlint
+        run: npm run eslint:github-action
