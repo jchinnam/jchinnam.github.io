@@ -9,6 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for javascript library vulnerabilities
+        uses: lirantal/is-website-vulnerable@master
+        with:
+          scan-url: "https://jchinnam.github.io"
+
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +27,6 @@ jobs:
         with:
           node-version: '12'
       - name: Run npm ci
-        run: npm ci      
+        run: npm ci
       - name: Lint
-        run: npm run eslint:github-action
+        run: npm run lint
