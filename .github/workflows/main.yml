@@ -27,14 +27,16 @@ jobs:
         uses: CamiloGarciaLaRotta/watermelon-http-client@v1
         with:
           url: 'https://jchinnam.github.io'
-      - name: Print response status
-        run: echo ${{ steps.query.outputs.status }}
-        shell: bash
       - name: Print response headers
         run: echo ${{ steps.query.outputs.headers }}
         shell: bash
       - name: Print response payload
         run: echo ${{ steps.query.outputs.response }}
+        shell: bash
+      - name: Check response status
+        run: |
+          echo ${{ steps.query.outputs.status }}
+          if [ ${{ steps.query.outputs.status }} -ne 200 ] ; then exit 1 ; fi
         shell: bash
 
   lint:
