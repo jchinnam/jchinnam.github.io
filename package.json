@@ -12,7 +12,7 @@
     "url": "https://github.com/jchinnam/jchinnam.github.io/issues"
   },
   "scripts": {
-    "eslint:github-action": "eslint --init js/"
+    "eslint:github-action": "eslint js/"
   },
   "dependencies": {
     "aos": "^2.3.4",
