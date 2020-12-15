@@ -9,16 +9,46 @@ on:
   workflow_dispatch:
 
 jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for javascript library vulnerabilities
+        uses: lirantal/is-website-vulnerable@master
+        with:
+          scan-url: "https://jchinnam.github.io"
+
+  availability:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull sources
+        uses: actions/checkout@v2
+      - name: Ping
+        id: query
+        uses: CamiloGarciaLaRotta/watermelon-http-client@v1
+        with:
+          url: 'https://jchinnam.github.io'
+      - name: Print response headers
+        run: echo ${{ steps.query.outputs.headers }}
+        shell: bash
+      - name: Print response payload
+        run: echo ${{ steps.query.outputs.response }}
+        shell: bash
+      - name: Check response status
+        run: |
+          echo ${{ steps.query.outputs.status }}
+          if [ ${{ steps.query.outputs.status }} -ne 200 ] ; then exit 1 ; fi
+        shell: bash
+
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Sync repository
+      - name: Pull sources
         uses: actions/checkout@v2
       - name: Setup node
         uses: actions/setup-node@v1
         with:
           node-version: '12'
       - name: Run npm ci
-        run: npm ci      
+        run: npm ci
       - name: Lint
-        run: npm run eslint:github-action
+        run: npm run lint
