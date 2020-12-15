@@ -1,0 +1,24 @@
+name: build
+
+on:
+  schedule:
+      # * is a special character in YAML so you have to quote this string
+      - cron:  '0 0 1 * *'
+
+  # allows you to run this workflow manually from actions tab
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync repository
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Run npm ci
+        run: npm ci      
+      - name: Lint
+        run: npm run eslint:github-action
