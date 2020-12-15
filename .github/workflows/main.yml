@@ -1,9 +1,12 @@
 name: build
 
 on:
+  pull_request:
+    branches: [ main ] # pull requests on main branch
+
   schedule:
       # * is a special character in YAML so you have to quote this string
-      - cron:  '0 0 1 * *'
+      - cron:  '0 0 1 * *' # at 00:00 UTC on the 1st of every month
 
   # allows you to run this workflow manually from actions tab
   workflow_dispatch:
@@ -35,7 +38,7 @@ jobs:
         shell: bash
       - name: Check response status
         run: |
-          echo ${{ steps.query.outputs.status }}
+          echo Response status: ${{ steps.query.outputs.status }}
           if [ ${{ steps.query.outputs.status }} -ne 200 ] ; then exit 1 ; fi
         shell: bash
 
