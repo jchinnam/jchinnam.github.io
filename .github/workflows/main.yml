@@ -17,10 +17,30 @@ jobs:
         with:
           scan-url: "https://jchinnam.github.io"
 
+  availability:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull sources
+        uses: actions/checkout@v2
+      - name: Execute a dummy query
+        id: query
+        uses: ./
+        with:
+          url: 'https://jchinnam.github.io'
+      - name: Print response status
+        run: echo ${{ steps.query.outputs.status }}
+        shell: bash
+      - name: Print response headers
+        run: echo ${{ steps.query.outputs.headers }}
+        shell: bash
+      - name: Print response payload
+        run: echo ${{ steps.query.outputs.response }}
+        shell: bash
+
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Sync repository
+      - name: Pull sources
         uses: actions/checkout@v2
       - name: Setup node
         uses: actions/setup-node@v1
