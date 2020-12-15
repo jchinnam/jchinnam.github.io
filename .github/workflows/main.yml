@@ -36,7 +36,7 @@ jobs:
       - name: Check response status
         run: |
           echo ${{ steps.query.outputs.status }}
-          if [ ${{ steps.query.outputs.status }} -ne 200 ] ; then exit 1 ; fi
+          if [ ${{ steps.query.outputs.status }} -e 200 ] ; then exit 1 ; fi
         shell: bash
 
   lint:
