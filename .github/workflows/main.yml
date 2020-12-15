@@ -34,4 +34,6 @@ jobs:
       
       # Linting
       - name: Run ESlint
-        run: npm run eslint:github-action
+        run: |
+          eslint --init
+          npm run eslint:github-action
