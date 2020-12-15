@@ -22,9 +22,9 @@ jobs:
     steps:
       - name: Pull sources
         uses: actions/checkout@v2
-      - name: Execute a dummy query
+      - name: Ping
         id: query
-        uses: ./
+        uses: CamiloGarciaLaRotta/watermelon-http-client@v1
         with:
           url: 'https://jchinnam.github.io'
       - name: Print response status
