@@ -23,15 +23,19 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: check out repository
+        uses: actions/checkout@v2
         
-        # Setup node & npm
-        name: Node setup
-      - uses: actions/setup-node@v1
+      # Setup node & npm
+      - name: node setup
+        uses: actions/setup-node@v1
         with:
           node-version: '12'
-      - run: npm ci
+      
+      # Run npm ci
+      - name: npm ci
+        run: npm ci
       
       # Linting
-      - name: Run ESlint
+      - name: eslint
         run: npm run eslint:github-action
