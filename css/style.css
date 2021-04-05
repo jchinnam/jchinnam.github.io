@@ -14,11 +14,11 @@ body {
 }
 
 a {
-  color: #D2FD88; /* main link color */
+  color: #ABCC81; /* main link color */
 }
 
 a:hover {
-  color: #A9FD17; /* main link hover color */
+  color: #7EBD2B; /* main link hover color */
   text-decoration: none;
 }
 
@@ -208,14 +208,14 @@ canvas{
 #hero .social-links a {
   font-size: 24px;
   display: inline-block;
-  color: #D2FD88; /* social icon link color */
+  color: #ABCC81; /* social icon link color */
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
 
 #hero .social-links a:hover {
-  color: #A9FD17; /* social icon link hover color */
+  color: #7EBD2B; /* social icon link hover color */
 }
 
 @media (max-width: 992px) {
