@@ -33,4 +33,16 @@
     aos_init();
   });
 
+  // Hide scroll indicator arrow when scrolling
+  $(window).on('scroll', function() {
+    var scrollTop = $(window).scrollTop();
+    var scrollIndicator = $('.scroll-indicator');
+    
+    if (scrollTop > 50) {
+      scrollIndicator.fadeOut(300);
+    } else {
+      scrollIndicator.fadeIn(300);
+    }
+  });
+
 })(jQuery);

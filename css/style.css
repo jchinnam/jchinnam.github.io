@@ -273,12 +273,6 @@ canvas{
   font-size: 32px;
   color: #f3cbe4;
   animation: bounce 2s infinite;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.scroll-indicator i:hover {
-  color: #bc7ba3;
 }
 
 @keyframes bounce {
