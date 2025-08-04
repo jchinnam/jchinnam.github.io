@@ -14,11 +14,11 @@ body {
 }
 
 a {
-  color: #ABCC81; /* main link color */
+  color: #f3cbe4; /* main link color*/
 }
 
 a:hover {
-  color: #7EBD2B; /* main link hover color */
+  color: #bc7ba3; /* main link hover color*/
   text-decoration: none;
 }
 
@@ -99,14 +99,14 @@ canvas{
 #hero .social-links a {
   font-size: 24px;
   display: inline-block;
-  color: #ABCC81; /* social icon link color */
+  color: #f3cbe4; /* social icon link color*/
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
 
 #hero .social-links a:hover {
-  color: #7EBD2B; /* social icon link hover color */
+  color: #bc7ba3; /* social icon link hover color*/
 }
 
 @media (max-width: 992px) {
@@ -248,8 +248,7 @@ section {
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: #000000;
-  background-image: url('');
+  background: linear-gradient(135deg, #ecbd67 0%, #953eeb 100%);
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
