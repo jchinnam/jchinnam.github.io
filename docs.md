@@ -103,8 +103,5 @@ a:hover {
 }
 ```
 
-##### color scheme updates since
-1. paler greens: #ABCC81 / #7EBD2B
-
 #### adding favicon
 upload image to [converter](https://favicon.io/favicon-converter/), then drop files into `favicon/`

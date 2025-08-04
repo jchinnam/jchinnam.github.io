@@ -11,14 +11,209 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #fff; /* main text color */
+  overflow-x: hidden;
+}
+
+.scrollable-content {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.scrollable-content > * {
+  position: relative;
+  z-index: 2;
+}
+
+/*--------------------------------------------------------------
+# Experience Section
+--------------------------------------------------------------*/
+.experience-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.company-group {
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.company-group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.company-group:hover::before {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.company-group:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.company-group::after {
+  content: '\eb09';
+  font-family: 'boxicons';
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.company-group:hover::after {
+  opacity: 1;
+}
+
+.experience-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-date {
+  width: 120px;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: #f3cbe4;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-top: 5px;
+}
+
+.experience-content {
+  flex: 1;
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.experience-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.experience-header h3 i {
+  font-size: 16px;
+  color: #bc7ba3;
+  transition: transform 0.3s ease;
+}
+
+.experience-header h3:hover i {
+  transform: translateX(3px);
+}
+
+.experience-header h4 {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  color: #fff;
+  margin: 0;
+}
+
+.experience-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.7); /*0.7 makes text more transparent*/
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: rgba(236, 189, 103, 0.15);
+  color: #f3cbe4;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 500;
+  border: 1px solid rgba(236, 189, 103, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+/* Mobile responsive experience */
+@media (max-width: 768px) {
+  .experience-item {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .experience-date {
+    min-width: auto;
+    padding-top: 0;
+  }
+  
+  .company-group {
+    margin-bottom: 8px;
+    padding: 15px;
+  }
+  
+  .experience-header h3 {
+    font-size: 18px;
+  }
+  
+  .experience-header h4 {
+    font-size: 14px;
+  }
+  
+  .experience-content p {
+    font-size: 14px;
+  }
+  
+  .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+  
+  .company-group::after {
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+  }
 }
 
 a {
-  color: #ABCC81; /* main link color */
+  color: #f3cbe4; /* main link color*/
 }
 
 a:hover {
-  color: #7EBD2B; /* main link hover color */
+  color: #bc7ba3; /* main link hover color*/
   text-decoration: none;
 }
 
@@ -50,10 +245,15 @@ canvas{
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   /*background: url("../img/hero-bg.jpg") top right no-repeat;*/
   background-size: cover;
   position: relative;
+  padding: 60px 0 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 992px) {
@@ -62,14 +262,16 @@ canvas{
   }
 }
 
-#hero:before {
+.scrollable-content:before {
   content: "";
   background: rgba(255, 255, 255, 0.2);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 #hero h1 {
@@ -99,14 +301,14 @@ canvas{
 #hero .social-links a {
   font-size: 24px;
   display: inline-block;
-  color: #ABCC81; /* social icon link color */
+  color: #f3cbe4; /* social icon link color*/
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
 
 #hero .social-links a:hover {
-  color: #7EBD2B; /* social icon link hover color */
+  color: #bc7ba3; /* social icon link hover color*/
 }
 
 @media (max-width: 992px) {
@@ -127,6 +329,39 @@ canvas{
 #hero .circle-profile {
   border-radius: 50%;
   margin: 0px 0px 40px 0px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+/*--------------------------------------------------------------
+# Scroll Indicator
+--------------------------------------------------------------*/
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.scroll-indicator i {
+  font-size: 32px;
+  color: #f3cbe4;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -246,10 +481,12 @@ section {
 --------------------------------------------------------------*/
 #particles-js{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: fixed;
-  background-color: #000000;
-  background-image: url('');
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #ecbd67 0%, #953eeb 100%);
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
